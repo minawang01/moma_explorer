@@ -1,0 +1,57 @@
+{% extends "navbar.html" %} {% block content %}
+<script src="{{url_for('static', filename='edit.js')}}"></script>
+<script>
+    let artwork = {{art | tojson}}
+</script>
+<div class="row margin-5 font">
+    <div class="col-sm-6 flex-column align-items-start">
+            <input class="col" id="view-title" value="{{art['title']}}">
+            <span class="error col-6" id="empty_title"></span>
+            <br>
+            <input class="col-6 mt-1" id="artist" value="{{art['artist']}}">
+            <span class="error col-6" id="empty_artist"></span>
+            <br/>
+            <input class="col-6 mt-1" id="year" value="{{art['year']}}">
+            <span class="error col-6" id="year_error"></span>
+            <br/>
+            <input class="col-6 mt-1" id="medium" value="{{art['medium']}}">
+            <span class="error col-6" id="medium_error"></span>
+        </div>
+    <div class="col-sm-6">
+        <input class="col mb-1" type="url" id="url" value="{{art['img']}}">
+        <span class="error col-6" id="empty_url"></span>
+        <img id="img" class="img-fluid" src="{{art['img']}}" alt="{{art['alt_text']}}">
+    </div>
+</div>
+<div id='art-description' class="font margin-5 row mt-4 mb-4">
+    <div class="col">
+        <textarea class="col" id="description">{{art['description']}}</textarea>
+        <span class="error col-6" id="desc_error"></span>
+    </div>
+</div>
+<div class="row font margin-5 mt-3">
+    <div class="col">
+        <span class="font">MoMA, Floor <input type="text" id="floor" value="{{art['floor']}}">, <input type="text" id="room" value="{{art['room']}}"></span>
+        <span class="col-6 error" id="floor_error"></span>
+        <span class="error col-6" id="room_error"></span>
+        <br>
+        <input type="text" id="gallery" class="grey col-md-4 mt-2" value="{{art['gallery']}}">
+        <span class="error col-6" id="gallery_error"></span>
+    </div>
+</div>
+<div class="submit margin-5 row mt-5">
+    <div class="col">
+        <button class="btn btn-accent" id="submit">
+        Submit Changes
+    </button>
+        <button class="btn btn-outline-grey" id="discard">
+        Discard Changes
+    </button>
+        <div id="dialog" title="Are you sure?">
+            <button class="btn btn-info" id="sure">Yes</button>
+            <button class="btn btn-info" id="not-sure">No</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

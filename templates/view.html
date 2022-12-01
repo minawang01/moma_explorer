@@ -1,0 +1,50 @@
+{% extends "navbar.html" %} {% block content %}
+<script src="{{url_for('static', filename='view.js')}}"></script>
+<script>
+    let artwork = {{ art | tojson}}
+    let nearby = {{nearby_works | tojson}}
+    let artist = {{from_artist | tojson}}
+</script>
+<div class="row font margin-5">
+    <div class="col-sm-6 flex-column align-items-start">
+        <div class="mb-auto">
+            <span id="view-title">{{art["title"]}}</span>
+        </div>
+        <div>
+            <span>{{art["artist"]}}</span>
+            <br/>
+            <span class="grey">{{art["year"]}}</span>
+            <br/>
+            <span class="grey">{{art["medium"]}}</span>
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <img class="view-img img-fluid" src="{{art['img']}}" alt="{{art['alt_text']}}">
+    </div>
+</div>
+<div id="art-description" class="mt-4 mb-4 font row margin-5">
+    <div class="col">
+        <p>{{art["description"]}}</p>
+    </div>
+</div>
+<div class="row font margin-5">
+    <div class="col">
+        <span>MoMA, Floor {{art["floor"]}}, {{art["room"]}}</span>
+        <br>
+        <span class="grey">{{art["gallery"]}}</span>
+    </div>
+</div>
+<div class="row margin-5 mt-3 mb-3">
+    <div id='nearby' class="col-6">
+
+    </div>
+    <div id='same_artist' class="col-6">
+    </div>
+</div>
+<div class="row margin-5">
+    <div class="col">
+        <button class='btn btn-outline-accent' id="edit">Edit</button>
+    </div>
+</div>
+{% endblock %}

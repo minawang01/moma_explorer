@@ -1,0 +1,59 @@
+{% extends "navbar.html" %} {% block content %}
+<script src="{{url_for('static', filename='add.js')}}"></script>
+<div id="add-header" class="margin-5 row justify-content-center">
+    <div class="font col-6">
+        <div id="status" class="row"></div>
+        <div class="row flex-column">
+            <span>Add a new art piece</span>
+        </div>
+    </div>
+</div>
+</div>
+<div class="mt-2 font row justify-content-center margin-5">
+    <div id="form" class="col-md-6">
+        <label for="artist">Artist:</label>
+        <input class="col-6" type="text" id="artist" name="artist" required>
+        <span class="error col-6" id="empty_artist"></span>
+        <br>
+        <label for="title">Title:</label>
+        <input class="col-6" type="text" id="title" name="artwork" required>
+        <span class="error col-6" id="empty_title"></span>
+        <br>
+        <label for="year">Year:</label>
+        <input class="col-6" id="year" type="text">
+        <span class="error col-6" id="year_error"></span>
+        <br>
+        <label for="medium">Medium:</label>
+        <input class="col-6" id="medium" type="text">
+        <span class="error col-6" id="medium_error"></span>
+        <br>
+        <label for="image">Upload Image:</label>
+        <input class="col-6" type="url" id="image" placeholder="https://example.com" required>
+        <span class="error col-6" id="empty_url"></span>
+        <br>
+        <label for="alt_text">Alt text:</label>
+        <input class="col-6" type="text" id="alt_text" placeholder="alt_text">
+        <span class="error col-6" id="alt_error"></span>
+        <br>
+        <label for="description">Add a description*:</label>
+        <textarea class="col" id="description" name="description" placeholder="Description here"></textarea>
+        <span class="error col-6" id="desc_error"></span>
+        <br>
+        <label for="floor">Floor:</label>
+        <input class="col-6" type="text" id="floor">
+        <span class="col-6 error" id="floor_error"></span>
+        <br>
+        <label for="room">Room:</label>
+        <input class="col-6" type="text" id="room">
+        <span class="error col-6" id="room_error"></span>
+        <br>
+        <label for="gallery">Gallery:</label>
+        <input class="col-6" type="text" id="gallery">
+        <span class="error col-6" id="gallery_error"></span>
+        <br>
+        <button id="submit_btn" class="btn btn-outline-accent">Submit</button>
+    </div>
+</div>
+
+
+{% endblock %}

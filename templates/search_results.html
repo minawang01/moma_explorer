@@ -1,0 +1,18 @@
+{% extends "navbar.html" %} {% block content %}
+<script src="{{url_for('static', filename='search_results.js')}}"></script>
+<script>
+    results = {{results | tojson}}
+    search_term = {{search_term | tojson}}
+    console.log(search_term)
+    num_results = {{num_results | tojson}}
+</script>
+<div id="results-header" class="mt-5 mb-5 row font margin-5">
+    <div id='num-results' class="col">
+    </div>
+</div>
+<div id="results-container" class="row margin-5 justify-content-center">
+
+</div>
+
+
+{% endblock %}

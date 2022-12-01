@@ -1,0 +1,24 @@
+{% extends "navbar.html" %} {% block content %}
+<script src="{{url_for('static', filename='index.js')}}"></script>
+<script>
+    pop_art = {{popular_art | tojson}}
+</script>
+<div class="row index-header jumbotron justify-content-center">
+    <div class="overlay">
+    </div>
+    <div class="col-md-4 banner">
+        <span id='index-header' class="font">MoMA Explorer</span>
+        <br>
+        <span id="description" class="font">Visitors can get background information about artworks at the MoMA as they view them by simply searching up the artwork. They can also get suggestions to view nearby or by the same artist.</span>
+    </div>
+</div>
+<div class="row">
+    <div class="get_started col d-flex font">
+        <p>Get started by viewing these <span class="base">popular artworks</span></p>
+    </div>
+</div>
+<div class="popular_artworks row flex-column">
+
+</div>
+
+{% endblock %}
